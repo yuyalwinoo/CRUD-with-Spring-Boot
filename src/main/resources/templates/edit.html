@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<title>User Edit</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+	
+	<div class="container mx-auto p-4 bg-white">
+	  <div class="w-full md:w-1/2 lg:w-1/3 mx-auto my-12">
+	    <h1 class="text-lg font-bold">Register</h1>
+	    <form class="flex flex-col mt-4" th:action="@{/edit}" th:object="${user}" method="post">
+	    	<div class='my-2 mx-1'>
+	    		<!-- <label th:if="!${error}" class="text-red-500">Your Email Already Exist!</label> -->
+	    		<label th:if="${success}" class="text-green-500">Saved Successfully!</label>
+	    	</div>
+		      <input
+		      	  th:field="*{name}"
+		          type="text"
+		          name="name"
+		          class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+		          placeholder="Full Name"
+		      />
+		      <input
+		      	  th:field="*{email}"
+		          type="email"
+		          name="email"
+		          class="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+		          placeholder="Email address"
+		      />
+		      <input
+		      	  th:field="*{password}"
+		          type="hidden"
+		          name="password"
+		          class="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+		          placeholder="Password"
+		      />
+		      <input
+		      	  th:field="*{id}"
+		          type="hidden"
+		          name="id"
+		          class="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+		          placeholder="ID"
+		      />
+		      <input
+		      	  th:field="*{phono}"
+		          type="text"
+		          name="phono"
+		          class="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+		          placeholder="Phone No"
+		      />
+		      <button
+		          type="submit"
+		          class="mt-4 px-4 py-3  leading-6 text-base rounded-md border border-transparent text-white focus:outline-none bg-blue-500 text-blue-100 hover:text-white focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer inline-flex items-center w-full justify-center items-center font-medium focus:outline-none"
+		      >
+		        Register
+		      </button>
+		      <div class="flex flex-col items-center mt-5">
+		        <p class="mt-1 text-xs font-light text-gray-500">
+		          Register already?<a th:href='@{/login}' class="ml-1 font-medium text-blue-400">Sign in now</a>
+		          </p>
+		      </div>
+	    </form>
+	  </div>
+	</div>
+</body>
+</html>
